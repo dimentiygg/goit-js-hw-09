@@ -1,0 +1,20 @@
+li {
+  list-style-type: none;
+}
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  max-width: 1244px;
+  margin: 0 auto;
+}
+.gallery-image {
+  width: 360px;
+  height: 200px;
+  transition: transform 100ms ease-in;
+}
+
+.gallery-image:hover {
+  transform: scale(1.05);
+  cursor: url('../images/Vector.png'), auto;
+}
