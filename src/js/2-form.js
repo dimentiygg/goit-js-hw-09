@@ -15,15 +15,19 @@ form.addEventListener('input', event => {
 });
 
 const getDataFromStorage = () => localStorage.getItem(storageKey);
+const object = JSON.parse(getDataFromStorage());
 
 form.addEventListener('submit', event => {
   event.preventDefault();
-  if (localStorage.length !== 0) {
-    const object = JSON.parse(getDataFromStorage());
-    form.email.value = object.email;
-    form.message.value = object.message;
+  if (form.email.value == 0 || form.message.value == 0) {
+    window.alert('All the fields must be filled in!');
+  } else {
     console.log(JSON.parse(getDataFromStorage()));
     localStorage.clear();
     form.reset();
   }
 });
+if (localStorage.length !== 0) {
+  form.email.value = object.email;
+  form.message.value = object.message;
+}
